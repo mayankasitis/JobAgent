@@ -1,0 +1,19 @@
+# personal data — never commit
+.env
+config/
+data/
+resumes/*
+!resumes/README.md
+*.db
+*.csv
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# macOS / editors
+.DS_Store
+.idea/
+.vscode/

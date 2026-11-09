@@ -1,0 +1,95 @@
+# ─────────────────────────────────────────────────────────────
+# MASTER PROFILE — single source of truth for every form.
+# Copy config.example/ → config/ (setup.sh does this) and fill in.
+# config/ is git-ignored: your personal data never gets committed.
+# The agent never invents facts: anything missing here, in answers.yaml
+# or in config/resume.txt is left blank and highlighted for you.
+# ─────────────────────────────────────────────────────────────
+
+personal:
+  first_name: Jane
+  last_name: Doe
+  full_name: Jane Doe
+  email: jane.doe@example.com
+  phone: "+91 90000 00000"
+  phone_country_code: "+91"
+  phone_national: "9000000000"
+  date_of_birth: ""                  # only used if a form insists
+  gender: ""                         # or "Prefer not to say"
+  linkedin: https://www.linkedin.com/in/your-handle
+  github: ""
+  website: ""
+
+location:
+  current_city: Pune
+  current_state: Maharashtra
+  current_country: India
+  postal_code: ""
+  address_line: ""
+  preferred_locations: [Pune, Bangalore, Remote (India)]
+  willing_to_relocate: true
+
+work_authorization:
+  authorized_in_india: true
+  requires_sponsorship_india: false
+  nationality: ""
+
+employment:
+  currently_employed: true
+  current_status: "Employed, 60-day notice period"
+  notice_period_days: 60
+  earliest_start_date: ""            # YYYY-MM-DD
+  total_experience_years: 8
+  relevant_experience_years: 8
+  last_employer: Example Corp
+  last_title: Senior Platform Engineer
+  last_location: Pune, India
+  employment_type_preference: Full-time
+
+compensation:
+  currency: INR
+  unit: LPA                          # lakh per annum
+  current: ""
+  expected: ""
+  minimum: ""                        # walk-away — used for scoring only, never typed into forms
+  negotiable: true
+
+education:
+  - degree: Bachelor of Engineering (B.E.)
+    field: Computer Engineering
+    institution: Example College of Engineering
+    university: Example University
+    graduation_year: 2016
+    grade: ""
+
+certifications: []
+
+experience:
+  - company: Example Corp
+    title: Senior Platform Engineer
+    location: Pune, India
+    start: "2021-01"
+    end: present
+  - company: Previous Co
+    title: DevOps Engineer
+    location: Bangalore, India
+    start: "2016-07"
+    end: "2020-12"
+
+skills:
+  primary: [Kubernetes, Terraform, AWS, Helm, Prometheus]
+  secondary: [Python, Bash, Ansible]
+
+# Your own rules for the AI, added to every prompt. Examples:
+guardrails:
+  - "Technology X was evaluation-only — never claim production experience with it."
+  - "Work on topic Y belongs only to the current role."
+
+eeo:
+  default_answer: "I don't wish to answer"
+
+# Put the PDF in resumes/ and its text in config/resume.txt
+# (macOS: open the PDF, select all, copy, paste into resume.txt).
+resume_variants:
+  main: resumes/resume.pdf
+default_variant: main

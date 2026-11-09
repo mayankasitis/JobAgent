@@ -1,0 +1,89 @@
+# ─────────────────────────────────────────────────────────────
+# TARGETING — what "a good job" means. Cheap keyword filters run
+# first; only survivors are sent to Claude for scoring.
+# ─────────────────────────────────────────────────────────────
+
+search_terms:            # used for Workday / SmartRecruiters search 
+  - platform engineer
+  - site reliability
+  - devops
+  - kubernetes
+  - cloud infrastructure
+  - infrastructure engineer
+  - cloud engineer
+  - finops
+
+title_include:           # at least one must match (case-insensitive substring)
+  - platform
+  - sre
+  - site reliability
+  - devops
+  - kubernetes
+  - infrastructure
+  - infra
+  - reliability
+  - observability
+  - production engineering
+  - devsecops
+  - cloud
+  - multi cloud
+  - network platform
+  - cloud engineer
+  - cloud architect
+  - engineering manager, platform
+  - head of platform
+
+title_exclude:
+  - intern
+  - junior
+  - jr
+  - trainee
+  - associate
+  - fresher
+  - sales
+  - support engineer
+  - manager, sales
+  - frontend
+  - android
+  - ios
+
+seniority_hint:          # boosts score; not a hard filter 
+  - senior
+  - staff
+  - principal
+  - lead
+  - architect
+
+locations_include:       # job location must contain one (case-insensitive)
+  - pune
+  - bangalore
+  - bengaluru
+  - remote               # only India/APAC-remote or unrestricted remote passes (see discovery.location_ok)
+
+locations_exclude: []
+
+max_age_days: 21         # ignore postings older than this
+
+company_blacklist:        # e.g. your current employer
+  - Example Current Employer
+
+# Scoring
+min_score_to_shortlist: 70     # 0–100
+must_have_any: [kubernetes, k8s, eks, aks, terraform, azure, aws, gcp, gitops, argocd, flux, helm]
+resume_strengths:        # scorer boosts jobs that ask for these — list your real strengths
+  - Kubernetes platform ownership
+  - GitOps (ArgoCD / Flux)
+  - infrastructure as code (Terraform)
+  - observability and SLOs
+  - cloud cost optimisation
+red_flags:
+  - "L1 support"
+  - "24x7 rotational night"
+  - "contract to hire"
+  - "C2H"
+
+# Volume control
+daily_caps:
+  company: 15            # career-page applications per day
+  linkedin: 6
+  naukri: 6

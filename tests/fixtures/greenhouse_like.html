@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Apply — Senior Platform Engineer</title>
+<style>
+  .row{margin:10px 0} .opt{display:none}
+  .rs-menu{border:1px solid #ccc;position:absolute;background:#fff}
+  .custom-radio input{position:absolute;opacity:0;width:0;height:0}
+</style></head>
+<body>
+<h1>Senior Platform Engineer</h1>
+<form id="application">
+  <div class="row"><label for="first_name">First Name *</label><input id="first_name" name="first_name" required></div>
+  <div class="row"><label for="last_name">Last Name *</label><input id="last_name" name="last_name" required></div>
+  <div class="row"><label for="email">Email *</label><input id="email" type="email" required></div>
+  <div class="row"><label for="phone">Phone</label><input id="phone" type="tel"></div>
+  <div class="row"><label for="resume">Resume/CV *</label><input id="resume" type="file" accept=".pdf,.doc,.docx" required></div>
+  <div class="row"><label for="cover">Cover Letter</label><input id="cover" type="file"></div>
+  <div class="row"><label for="li">LinkedIn Profile</label><input id="li" type="url"></div>
+
+  <div class="row">
+    <label for="auth">Are you legally authorized to work in India? *</label>
+    <select id="auth" required><option value="">Select...</option><option value="1">Yes</option><option value="0">No</option></select>
+  </div>
+
+  <div class="row"><label for="notice">What is your notice period?</label>
+    <select id="notice"><option value="">--</option><option>Immediate</option><option>15 days</option><option>30 days</option><option>60 days</option><option>90 days</option></select></div>
+
+  <fieldset class="row"><legend>Do you require visa sponsorship? *</legend>
+    <label class="custom-radio"><input type="radio" name="visa" value="y" required> Yes</label>
+    <label class="custom-radio"><input type="radio" name="visa" value="n"> No</label>
+  </fieldset>
+
+  <div class="row"><div class="question">Which clouds have you used in production?</div>
+    <label><input type="checkbox" name="clouds" value="aws"> AWS</label>
+    <label><input type="checkbox" name="clouds" value="azure"> Microsoft Azure</label>
+    <label><input type="checkbox" name="clouds" value="gcp"> Google Cloud</label>
+  </div>
+
+  <!-- react-select style combobox -->
+  <div class="row select__container">
+    <label id="loc-label">Current location *</label>
+    <input role="combobox" aria-labelledby="loc-label" aria-required="true" id="loc" autocomplete="off">
+    <div class="rs-menu" id="loc-menu" role="listbox" hidden></div>
+  </div>
+
+  <div class="row"><label for="ctc">Expected CTC (LPA)</label><input id="ctc" type="number"></div>
+  <div class="row"><label for="why">Why do you want to work at Acme?</label><textarea id="why" maxlength="1000"></textarea></div>
+  <div class="row"><label for="ref">Referral employee ID</label><input id="ref"></div>
+
+  <div class="row"><label><input type="checkbox" id="privacy" required> I agree to the Privacy Policy *</label></div>
+  <div class="row"><label><input type="checkbox" id="mkt"> Send me marketing emails about future roles</label></div>
+
+  <div class="row g-recaptcha"><input id="captcha-token"></div>
+  <input type="hidden" name="token" value="x">
+  <button type="submit">Submit Application</button>
+</form>
+
+<iframe id="eeo" srcdoc='<form><label for="g">Gender</label><select id="g"><option value="">Please select</option><option>Male</option><option>Female</option><option>Non-binary</option><option>I don&apos;t wish to answer</option></select></form>' style="width:400px;height:80px"></iframe>
+
+<script>
+  const cities = ["Pune, Maharashtra, India","Pune, Pennsylvania? (not real)","Bangalore, Karnataka, India","Mumbai, Maharashtra, India"];
+  const inp = document.getElementById('loc'), menu = document.getElementById('loc-menu');
+  inp.addEventListener('input', () => {
+    const q = inp.value.toLowerCase();
+    menu.innerHTML = '';
+    cities.filter(c => c.toLowerCase().includes(q)).forEach(c => {
+      const d = document.createElement('div'); d.setAttribute('role','option'); d.textContent = c;
+      d.onclick = () => { inp.value = c; menu.hidden = true; inp.dataset.chosen = c; };
+      menu.appendChild(d);
+    });
+    menu.hidden = !menu.children.length;
+  });
+</script>
+</body></html>

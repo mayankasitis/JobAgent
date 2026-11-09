@@ -1,0 +1,58 @@
+# ─────────────────────────────────────────────────────────────
+# TARGET COMPANIES and the job-board system (ATS) behind their careers page.
+#   python -m jobagent detect-ats "<careers page or job URL>"   → snippet to add
+#   python -m jobagent verify-companies                         → ✓/✗ per entry
+# Formats: greenhouse/lever/ashby/smartrecruiters → slug; workday → site URL;
+#          manual → careers URL (add jobs with `add-url`).
+# Product/infra companies with Pune or Bangalore engineering (or India-remote).
+# ─────────────────────────────────────────────────────────────
+
+companies:
+  # ── Greenhouse ──
+  - {name: Databricks,      ats: greenhouse, slug: databricks}
+  - {name: PubMatic,        ats: greenhouse, slug: pubmatic}
+  - {name: Rubrik,          ats: greenhouse, slug: rubrik}
+  - {name: Okta,            ats: greenhouse, slug: okta}
+  - {name: Twilio,          ats: greenhouse, slug: twilio}
+  - {name: MongoDB,         ats: greenhouse, slug: mongodb}
+  - {name: Elastic,         ats: greenhouse, slug: elastic}
+  - {name: GitLab,          ats: greenhouse, slug: gitlab}
+  - {name: Grafana Labs,    ats: greenhouse, slug: grafanalabs}
+  - {name: Fivetran,        ats: greenhouse, slug: fivetran}
+  - {name: Thoughtworks,    ats: greenhouse, slug: thoughtworks}
+  - {name: Harness,         ats: greenhouse, slug: harnessinc}
+  - {name: Druva,           ats: greenhouse, slug: druva}
+  - {name: Cloudflare,      ats: greenhouse, slug: cloudflare}
+  - {name: Canonical,       ats: greenhouse, slug: canonical}
+  - {name: Coinbase,        ats: greenhouse, slug: coinbase}
+
+  # ── Lever ──
+  - {name: Meesho,          ats: lever, slug: meesho}
+  - {name: CRED,            ats: lever, slug: cred}
+  - {name: Zeta,            ats: lever, slug: zeta}
+  - {name: Mindtickle,      ats: lever, slug: mindtickle}
+
+  # ── Ashby ──
+  - {name: Atlan,           ats: ashby, slug: atlan}
+  - {name: Deel,            ats: ashby, slug: deel}
+  - {name: Snowflake,       ats: ashby, slug: snowflake}
+  - {name: Sarvam AI,       ats: ashby, slug: sarvam}
+
+  # ── SmartRecruiters ──
+  - {name: ServiceNow,      ats: smartrecruiters, slug: ServiceNow}
+  - {name: Visa,            ats: smartrecruiters, slug: Visa}
+  - {name: Bosch,           ats: smartrecruiters, slug: BoschGroup}
+
+  # ── Workday ──
+  - {name: NVIDIA,          ats: workday, url: https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite}
+  - {name: Red Hat,         ats: workday, url: https://redhat.wd5.myworkdayjobs.com/en-US/jobs}
+  - {name: Salesforce,      ats: workday, url: https://salesforce.wd12.myworkdayjobs.com/en-US/External_Career_Site}
+  - {name: Mastercard,      ats: workday, url: https://mastercard.wd1.myworkdayjobs.com/en-US/CorporateCareers}
+  - {name: Adobe,           ats: workday, url: https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced}
+  - {name: SUSE,            ats: workday, url: https://suse.wd3.myworkdayjobs.com/en-US/Jobsatsuse}
+  - {name: Autodesk,        ats: workday, url: https://autodesk.wd1.myworkdayjobs.com/en-US/Ext}
+  - {name: Broadcom,        ats: workday, url: https://broadcom.wd1.myworkdayjobs.com/en-US/External_Career}
+
+  # ── Manual (no public feed — use add-url) ──
+  - {name: Icertis,         ats: manual, url: https://www.icertis.com/company/careers/}
+  - {name: Qualys,          ats: manual, url: https://www.qualys.com/careers/}

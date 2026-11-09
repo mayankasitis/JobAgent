@@ -1,0 +1,45 @@
+# ─────────────────────────────────────────────────────────────
+# ANSWER BANK — reusable answers to screening questions.
+# Matched to questions by meaning, pasted verbatim. Keep them truthful.
+# ─────────────────────────────────────────────────────────────
+
+summary: >-
+  Two or three sentences about who you are professionally.
+
+why_leaving: >-
+  One honest, neutral sentence.
+
+why_this_company: >-
+  (fallback only) The agent drafts a company-specific answer per job and
+  marks it for your review.
+
+leadership: >-
+  Team size, scope, how you lead. Used only when a question asks.
+
+salary_expectation_text: "Expecting XX LPA; open to discussion based on scope."
+
+notice_period_text: "60 days, negotiable."
+
+relocation: "Yes, open to relocating within India."
+
+shift_work: "Comfortable with on-call rotations."
+
+remote_preference: "Hybrid or remote preferred."
+
+years:            # years of experience per technology
+  kubernetes: 5
+  aws: 5
+  terraform: 4
+  linux: 8
+  python: 3
+
+ratings:          # self-ratings 1–10
+  kubernetes: 8
+  aws: 8
+  terraform: 8
+
+custom:           # free-form Q→A pairs (the `l` learn key adds to data/learned_answers.yaml)
+  - q: "How did you hear about us?"
+    a: "Company careers page"
+  - q: "Are you willing to undergo a background check?"
+    a: "Yes"

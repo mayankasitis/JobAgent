@@ -1,0 +1,3 @@
+Paste the plain text of your resume here (config/resume.txt).
+It is sent to Claude with every scoring, cover-letter and form-mapping
+call and is the source of truth for every claim the agent makes.

@@ -1,0 +1,34 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Workday-like step 1</title>
+<style>[role=listbox]{border:1px solid #888;background:#fff;position:absolute}</style></head>
+<body>
+<div data-automation-id="applyFlowPage">
+  <div data-automation-id="formField-country">
+    <label id="lbl-country" data-automation-id="formLabel">Country<abbr>*</abbr></label>
+    <button type="button" aria-haspopup="listbox" aria-labelledby="lbl-country" aria-required="true" id="country">Select One</button>
+  </div>
+  <div data-automation-id="formField-source">
+    <label id="lbl-src">How Did You Hear About Us?</label>
+    <button type="button" aria-haspopup="listbox" aria-labelledby="lbl-src" id="src">Select One</button>
+  </div>
+  <div><label for="wd-first" data-automation-id="formLabel">Given Name(s)*</label>
+    <input id="wd-first" data-automation-id="legalNameSection_firstName" aria-required="true"></div>
+  <div><label for="wd-last">Family Name*</label><input id="wd-last" aria-required="true"></div>
+  <div><label for="wd-city">City</label><input id="wd-city" value="Oldtown"></div>
+  <div><label for="wd-start">Earliest start date</label><input id="wd-start" placeholder="MM/DD/YYYY"></div>
+  <button data-automation-id="bottom-navigation-next-button">Save and Continue</button>
+</div>
+<script>
+  const opts = { country: ["Germany","India","United States of America"], src: ["Job Board","Company Website","Employee Referral","LinkedIn"] };
+  for (const id of Object.keys(opts)) {
+    const btn = document.getElementById(id);
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[role=listbox]').forEach(e => e.remove());
+      const lb = document.createElement('ul'); lb.setAttribute('role','listbox');
+      opts[id].forEach(o => { const li = document.createElement('li'); li.setAttribute('role','option'); li.textContent = o;
+        li.onclick = () => { btn.textContent = o; lb.remove(); }; lb.appendChild(li); });
+      btn.after(lb);
+    });
+  }
+</script>
+</body></html>
